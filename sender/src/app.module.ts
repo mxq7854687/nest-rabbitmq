@@ -5,18 +5,21 @@ import { AppService } from './app.service';
 
 @Module({
   imports: [
+    // ClientsModule.register([
+    //   {
+    //     name: 'HELLO_SERVICE',
+    //     transport: Transport.RMQ,
+    //     options: {
+    //       urls: ['amqp://myuser:mypassword@localhost:5672'],
+    //       queue: 'user-messages',
+    //       queueOptions: {
+    //         durable: true,
+    //       },
+    //     },
+    //   },
+    // ]),
     ClientsModule.register([
-      {
-        name: 'HELLO_SERVICE',
-        transport: Transport.RMQ,
-        options: {
-          urls: ['amqp://myuser:mypassword@localhost:5672'],
-          queue: 'user-messages',
-          queueOptions: {
-            durable: true,
-          },
-        },
-      },
+      { name: 'HELLO_SERVICE', transport: Transport.TCP },
     ]),
   ],
   controllers: [AppController],
